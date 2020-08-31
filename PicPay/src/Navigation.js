@@ -1,31 +1,31 @@
-import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { AntDesign, Ionicons } from '@expo/vector-icons';
+import React from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { AntDesign, Ionicons } from "@expo/vector-icons";
 
-import PayButton from './components/PayButton';
+import PayButton from "./components/PayButton";
 
-import HomeScreen from './screens/Home';
-import WalletScreen from './screens/Wallet';
-import PayScreen from './screens/Pay';
+import HomeScreen from "./screens/Home";
+import WalletScreen from "./screens/Wallet";
+import PayScreen from "./screens/Pay";
 
 const Tab = createBottomTabNavigator();
 
 const icons = {
   Home: {
     lib: AntDesign,
-    name: 'home',
+    name: "home",
   },
   Wallet: {
     lib: AntDesign,
-    name: 'creditcard',
+    name: "creditcard",
   },
   Notifications: {
     lib: Ionicons,
-    name: 'ios-notifications-outline',
+    name: "ios-notifications-outline",
   },
   Settings: {
     lib: AntDesign,
-    name: 'setting',
+    name: "setting",
   },
 };
 
@@ -35,10 +35,10 @@ export default function Navigation() {
       initialRouteName="Wallet"
       screenOptions={({ route, navigation }) => ({
         tabBarIcon: ({ color, size, focused }) => {
-          if (route.name === 'Pay') {
+          if (route.name === "Pay") {
             return (
               <PayButton
-                onPress={() => navigation.navigate('Pay')}
+                onPress={() => navigation.navigate("Pay")}
                 focused={focused}
               />
             );
@@ -50,32 +50,32 @@ export default function Navigation() {
       })}
       tabBarOptions={{
         style: {
-          backgroundColor: '#131418',
-          borderTopColor: 'rgba(255, 255, 255, 0.2)',
+          backgroundColor: "#131418",
+          borderTopColor: "rgba(255, 255, 255, 0.2)",
         },
-        activeTintColor: '#fff',
-        inactiveTintColor: '#92929c',
+        activeTintColor: "#fff",
+        inactiveTintColor: "#92929c",
       }}
     >
       <Tab.Screen
         name="Home"
         component={HomeScreen}
         options={{
-          title: 'Início',
+          title: "Início",
         }}
       />
       <Tab.Screen
         name="Wallet"
         component={WalletScreen}
         options={{
-          title: 'Carteira',
+          title: "Carteira",
         }}
       />
       <Tab.Screen
         name="Pay"
         component={PayScreen}
         options={{
-          title: '',
+          title: "",
         }}
       />
 
@@ -83,14 +83,14 @@ export default function Navigation() {
         name="Notifications"
         component={PayScreen}
         options={{
-          title: 'Notificações',
+          title: "Notificações",
         }}
       />
       <Tab.Screen
         name="Settings"
         component={PayScreen}
         options={{
-          title: 'Ajustes',
+          title: "Ajustes",
         }}
       />
     </Tab.Navigator>
